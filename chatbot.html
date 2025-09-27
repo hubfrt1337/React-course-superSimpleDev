@@ -66,6 +66,7 @@
         scrollbar-width: none;
       }
       .info{
+        padding-top: 10px;
         text-align: center;
       }
     </style>
@@ -101,7 +102,7 @@
             {
               sender: "robot",
               key: crypto.randomUUID(),
-              message: "Loading...",
+              message: <img width="30px" src="loading-spinner.gif"></img>,
             }
           ])
           setIsLoading(true)
