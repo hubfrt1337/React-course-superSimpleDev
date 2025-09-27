@@ -168,13 +168,20 @@
         );
       }
 
+      
 
       function ChatComponents( {chatMessages}) {
-        const chatMessagesRef = React.useRef(null)
-        React.useEffect(() => {
-          const containerChatElement = chatMessagesRef.current
-          containerChatElement.scrollTop = containerChatElement.scrollHeight;
-        }, [chatMessages])
+        const chatMessagesRef = useAutoScroll(chatMessages)
+        function useAutoScroll(dependencies){
+          const containerRef = React.useRef(null)
+          React.useEffect(() => {
+            const containerChatElement = containerRef.current
+            if(containerChatElement){
+              containerChatElement.scrollTop = containerChatElement.scrollHeight;
+            }
+          }, [dependencies])
+          return containerRef;
+      }
         
         return (
           <div className="chat-container"
