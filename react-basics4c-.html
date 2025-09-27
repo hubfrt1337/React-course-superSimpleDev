@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <style>
+      .btn{
+        padding: 8px 10px;
+        background-color: rgb(0, 123, 255);
+        border: none;
+        border-radius: 5px;
+        margin-right: 5px;
+        color: white;
+      }
+    </style>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function InputForm(){
+        const [hide, setHide] = React.useState(true)
+        function change(){
+          if(hide === true){
+            setHide(false)
+          } else {
+            setHide(true)
+          }
+        }
+        return <>
+        <div>
+          <input placeholder="E-mail"></input>
+        </div>
+        <p>
+          <input type={hide ? "password" : "text"} placeholder="Password"></input>
+          <button onClick={change}>{hide ? "show" : "hide"}</button>
+        </p>
+        <button className="btn">Login</button>
+        <button className="btn">Sign up</button>
+        </>
+      }
+      function App(){
+        return <>
+          <p>Welcome to my Website!</p>
+          <InputForm />       
+        </>
+      }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />)
+      
+    </script>
+  </body>
+</html>
