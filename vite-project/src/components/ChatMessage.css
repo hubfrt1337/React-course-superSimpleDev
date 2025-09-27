@@ -1,0 +1,28 @@
+.robot-message-container{
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  padding-top: 10px;
+}
+.user-message-container{
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  padding-top: 10px;
+}
+.icon{
+  width: 45px;
+  height: 45px;
+  align-self: center;
+}
+.message-text{
+  padding: 10px 12px;
+  background-color: rgb(198, 198, 198);
+  border-radius: 10px;
+  max-width: 300px;
+}
+.chat-container{
+  flex-grow: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+}
