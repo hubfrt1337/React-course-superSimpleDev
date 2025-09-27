@@ -20,32 +20,50 @@
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script type="text/babel">
       function InputForm(){
         const [hide, setHide] = React.useState(true)
-        function change(){
-          if(hide === true){
-            setHide(false)
-          } else {
-            setHide(true)
+          function change(){
+            if(hide === true){
+              setHide(false)
+            } else {
+              setHide(true)
+            }
           }
-        }
-        return <>
-        <div>
-          <input placeholder="E-mail"></input>
-        </div>
-        <p>
-          <input type={hide ? "password" : "text"} placeholder="Password"></input>
-          <button onClick={change}>{hide ? "show" : "hide"}</button>
-        </p>
-        <button className="btn">Login</button>
-        <button className="btn">Sign up</button>
-        </>
+          return (<>
+          <div>
+            <input placeholder="E-mail"></input>
+          </div>
+          <p>
+            <input type={hide ? "password" : "text"} placeholder="Password"></input>
+            <button onClick={change}>{hide ? "show" : "hide"}</button>
+          </p>
+          <button className="btn">Login</button>
+          <button className="btn">Sign up</button>
+          </>
+        )
       }
+
+      function Time(){
+        const [time, setTime] = React.useState(dayjs().format("HH:mm:ss"))
+        React.useEffect(() => {
+          setInterval(() => {
+            setTime(dayjs().format("HH:mm:ss"))
+          }, 1000)
+        }, [Time])
+        return (
+        <div>
+          Current time is {time}
+        </div>
+        )
+      }
+
       function App(){
         return <>
           <p>Welcome to my Website!</p>
-          <InputForm />       
+          <InputForm />    
+          <Time />   
         </>
       }
       const container = document.querySelector('.js-container');
