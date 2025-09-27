@@ -65,6 +65,9 @@
         overflow: scroll;
         scrollbar-width: none;
       }
+      .info{
+        text-align: center;
+      }
     </style>
 
     <div class="js-container"></div>
@@ -191,30 +194,15 @@
 
 
       function App() {
-         const [chatMessages, setChatMessage] = React.useState([{
-            message: "Hello chatBot",
-            sender: "user",
-            key: "id1",
-          },
-          {
-            message: "Hello how can I help you?",
-            sender: "robot",
-            key: "id2",
-          },
-          {
-            message: "Can you get me todays date?",
-            sender: "user",
-            key: "id3",
-          },
-          {
-            message: "Today is October 20",
-            sender: "robot",
-            key: "id4",
-          },
+         const [chatMessages, setChatMessage] = React.useState([
+          
         ]);
        
         return (
           <div className="container">
+          <div className="info"> {chatMessages.length === 0 
+            ? "Welcome to the chatbot project. Send a message using the textbox below!" 
+            : ""}</div>
           <ChatComponents
           chatMessages={chatMessages}
           setChatMessage={setChatMessage}
