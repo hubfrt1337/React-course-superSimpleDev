@@ -19,7 +19,8 @@
 }
 .message-text{
   display: flex;
-  align-items: center;
+  align-items: left;
+  flex-direction: column;
   padding: 10px 12px;
   background-color: rgb(198, 198, 198);
   border-radius: 10px;
@@ -29,4 +30,8 @@
   flex-grow: 1;
   overflow: scroll;
   scrollbar-width: none;
+}
+.time{
+  color: rgb(64, 63, 63);
+  font-size: 12px;
 }
