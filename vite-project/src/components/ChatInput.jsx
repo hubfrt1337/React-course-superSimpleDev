@@ -2,6 +2,7 @@ import { useState } from 'react'
 import loadingGif from '../assets/loading-spinner.gif'
 import {Chatbot} from 'supersimpledev'
 import './ChatInput.css'
+import ChatMessage from './ChatMessage';
 export function ChatInput({chatMessages, setChatMessage}) {
     const [inputText, setInputText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -49,6 +50,10 @@ export function ChatInput({chatMessages, setChatMessage}) {
         }
     }
 
+    function clear(){
+        setChatMessage([])
+    }
+
     return (
     <div className="input-container">
         <input 
@@ -63,6 +68,11 @@ export function ChatInput({chatMessages, setChatMessage}) {
         className="send-button"
         onClick={sendMessage}
         >Send</button>
+        <button 
+        onClick={clear}
+        className="clear-button">
+            Clear
+        </button>
     </div>
     )
 }

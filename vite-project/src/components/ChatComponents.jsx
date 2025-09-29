@@ -12,7 +12,7 @@ export function ChatComponents( {chatMessages}) {
         }, [dependencies])
         return containerRef;
     }
-
+    console.log(chatMessages)
     return (
         <div className="chat-container"
         ref={chatMessagesRef}>

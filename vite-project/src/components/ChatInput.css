@@ -19,3 +19,12 @@
   margin-top: 15px;
   margin-bottom: 60px;
 }
+.clear-button{
+  background-color: rgb(171, 170, 170);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+}

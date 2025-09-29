@@ -8,10 +8,10 @@ function App() {
   useEffect(() => {
     Chatbot.addResponses({"what dish do you like the most": "I love spaghetti"})
   }, [])
-  const [chatMessages, setChatMessage] = useState([
-
-  ]);
-  
+  const [chatMessages, setChatMessage] = useState(JSON.parse(localStorage.getItem("messages")) || []);
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(chatMessages))
+  }, [chatMessages])
   return (
     <div className="container">
     <div className="info"> {chatMessages.length === 0 
