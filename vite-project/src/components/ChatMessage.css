@@ -13,9 +13,13 @@
 .icon{
   width: 45px;
   height: 45px;
+  border-radius: 50px;
   align-self: center;
+  object-fit: cover;
 }
 .message-text{
+  display: flex;
+  align-items: center;
   padding: 10px 12px;
   background-color: rgb(198, 198, 198);
   border-radius: 10px;

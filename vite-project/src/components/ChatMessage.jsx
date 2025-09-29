@@ -1,7 +1,8 @@
 import robotImg from '../assets/robot.png'
-import userImg from '../assets/user.png'
+import userImg from '../assets/profile-1.jpg'
 import './ChatMessage.css'
 export default function ChatMessage({message, sender}) {
+    console.log(userImg)
     return (
         <div className={sender === "robot" 
             ? "robot-message-container"
