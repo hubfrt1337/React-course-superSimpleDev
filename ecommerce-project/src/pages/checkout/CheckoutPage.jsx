@@ -1,11 +1,11 @@
-import { ChechkoutHeader } from "./CheckoutHeader"; 
+import { CheckoutHeader } from "./CheckoutHeader"; 
 import "./checkoutPage.css";
 export function CheckoutPage() {
     return (
         <>
         <title>Checkout</title>
 
-            <ChechkoutHeader></ChechkoutHeader>
+            <CheckoutHeader></CheckoutHeader>
 
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
