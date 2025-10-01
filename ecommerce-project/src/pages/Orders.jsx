@@ -1,5 +1,6 @@
 import "./Orders.css";
 import {Header} from "../components/Header"
+import Link from "../components/Link";
 export function Orders() {
     return (
         <>
@@ -53,11 +54,11 @@ export function Orders() {
             </div>
 
             <div className="product-actions">
-              <a href="/tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
-              </a>
+              </Link>
             </div>
 
             <div className="product-image-container">
@@ -81,7 +82,7 @@ export function Orders() {
             </div>
 
             <div className="product-actions">
-              <a href="/tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
@@ -132,11 +133,11 @@ export function Orders() {
             </div>
 
             <div className="product-actions">
-              <a href="/tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
