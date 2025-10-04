@@ -3,17 +3,13 @@ import {Header} from "../components/Header"
 import {useState, useEffect} from "react"
 import checkmarkIcon from "../assets/images/icons/checkmark.png"
 import "./homepage.css"
-export function Homepage() {
+export function Homepage({cart}) {
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([])
+    
     useEffect(() => {
         axios.get("/api/products"
     ).then((response) => {
        setProducts(response.data)
-        })
-        axios.get("/api/cart-items")
-        .then((response) => {
-            setCart(response.data)
         })
     }, []);
     
