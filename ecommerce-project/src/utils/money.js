@@ -1,3 +1,3 @@
-export function formatMoney(cartItem){
-    return (cartItem.product.priceCents / 100).toFixed(2)
+export function formatMoney(priceCents){
+    return (priceCents / 100).toFixed(2)
 }
