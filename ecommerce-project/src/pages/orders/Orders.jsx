@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import {Fragment} from "react"
 import { Header } from "../../components/Header"
-import { Link } from "react-router"
-import buyIcon from "../../assets/images/icons/buy-again.png"
 import "./Orders.css";
 import { OrdersGrid } from "./OrdersGrid"
 export function Orders({ cart }) {
