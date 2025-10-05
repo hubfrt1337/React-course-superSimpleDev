@@ -26,6 +26,8 @@ export function Tracking( {cart}) {
     if(percent > 100) {
         percent = 100;
     }
+    const producted = dayjs(order.orderTimeMs).format("MMMM D, YYYY h:mm A")
+    console.log(producted);
     return (
         <>
         <title>Tracking</title>
@@ -38,7 +40,7 @@ export function Tracking( {cart}) {
                     </Link>
 
                     <div className="delivery-date">
-                        Arriving on {dayjs(selectedProduct.estimatedDeliveryTimeMs).format("dddd, MMMM D")}
+                {percent >= 100 ? "Delivered" : "Arriving"} on {dayjs(selectedProduct.estimatedDeliveryTimeMs).format("dddd, MMMM D")}
                     </div>
 
                     <div className="product-info">
