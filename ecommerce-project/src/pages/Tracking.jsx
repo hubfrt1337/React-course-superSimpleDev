@@ -26,8 +26,9 @@ export function Tracking( {cart}) {
     if(percent > 100) {
         percent = 100;
     }
-    const producted = dayjs(order.orderTimeMs).format("MMMM D, YYYY h:mm A")
-    console.log(producted);
+    let isPreparing = percent < 33;
+    let isShipped = percent >= 33 && percent < 100;
+    let isDelivered = percent === 100;
     return (
         <>
         <title>Tracking</title>
@@ -54,13 +55,13 @@ export function Tracking( {cart}) {
                     <img className="product-image" src={selectedProduct.product.image} />
 
                     <div className="progress-labels-container">
-                        <div className="progress-label">
+                        <div className={`progress-label ${isPreparing && 'current-status'}`}>
                             Preparing
                         </div>
-                        <div className="progress-label current-status">
+                        <div className={`progress-label ${isShipped && 'current-status'}`}>
                             Shipped
                         </div>
-                        <div className="progress-label">
+                        <div className={`progress-label ${isDelivered && 'current-status'}`}>
                             Delivered
                         </div>
                     </div>
