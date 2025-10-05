@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-export function DeliveryDate(deliveryOption, cartItem) {
+export function DeliveryDate({deliveryOption, cartItem}) {
     const selectedDeliveryOption = deliveryOption.find(option => {
             return option.id === cartItem.deliveryOptionId;
     })
