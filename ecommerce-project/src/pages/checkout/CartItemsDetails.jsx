@@ -1,9 +1,17 @@
 import { formatMoney } from "../../utils/money"
+import { useState } from "react"
 import axios from "axios"
-export function CartItemsDetails( { cartItem, loadCart }) {
+export function CartItemsDetails({ cartItem, loadCart }) {
+    const [updating, setUpdating] = useState(false)
     const deleteCartItem = async () => {
-         await axios.delete(`/api/cart-items/${cartItem.productId}`)
-         loadCart();
+        await axios.delete(`/api/cart-items/${cartItem.productId}`)
+        loadCart();
+    }
+    const updateQuantity = () => {
+        if(updating === false){
+            setUpdating(true)
+        } else 
+        setUpdating(false)
     }
     return (
         <>
@@ -19,14 +27,21 @@ export function CartItemsDetails( { cartItem, loadCart }) {
                 </div>
                 <div className="product-quantity">
                     <span>
-                        Quantity: <span className="quantity-label">{cartItem.quantity}</span>
+                        Quantity:
+                        <input 
+                        type="text" 
+                        style={{width: "50px", display: updating ? "inline-block" : "none"}}
+                        with="50px"></input>
+                        <span className="quantity-label">{cartItem.quantity}</span>
                     </span>
-                    <span className="update-quantity-link link-primary"
-            >
+                    <span
+                        className="update-quantity-link link-primary"
+                        onClick={(updateQuantity)}
+                    >
                         Update
                     </span>
                     <span className="delete-quantity-link link-primary"
-                    onClick={deleteCartItem}>
+                        onClick={deleteCartItem}>
                         Delete
                     </span>
                 </div>
