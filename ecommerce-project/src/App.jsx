@@ -22,6 +22,7 @@ function App() {
     
     loadCart();
   }, []);
+  window.axios = axios; // for debugging purposes
   return (
     <Routes>
       <Route index element={<Homepage cart={cart} loadCart={loadCart}/>} />
