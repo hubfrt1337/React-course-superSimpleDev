@@ -4,6 +4,7 @@ import { useState } from "react"
 import checkmarkIcon from "../../assets/images/icons/checkmark.png"
 export function Product({product, loadCart}) {
     const [quantity, setQuantity] = useState(1);
+    const [visibility, setVisibility] = useState(false);
 
     const addToCart = async () => {
                     await axios.post("/api/cart-items", {
@@ -11,6 +12,10 @@ export function Product({product, loadCart}) {
                         quantity: quantity,
                     })
                     await loadCart();
+                    setVisibility(true);
+                    setTimeout(() => {
+                        setVisibility(false);
+                    }, 2000);
                 }
     const selectQuantity = (event) => {
                    const selectedQuantity =  Number(event.target.value);
@@ -56,13 +61,15 @@ export function Product({product, loadCart}) {
 
             <div className="product-spacer"></div>
 
-            <div className="added-to-cart">
+            <div className="added-to-cart"
+                style={{opacity: visibility ? 1 : 0}}>
                 <img src={checkmarkIcon} />
                 Added
             </div>
 
             <button className="add-to-cart-button button-primary"
-                onClick={addToCart}>
+                onClick={addToCart}
+                >
                 Add to Cart
             </button>
         </div>
