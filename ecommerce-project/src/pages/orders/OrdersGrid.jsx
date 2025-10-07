@@ -1,4 +1,3 @@
-import dayjs from "dayjs"
 import { OrderHeader } from "./OrderHeader"
 import { OrderDetails } from "./OrderDetails"
 export function OrdersGrid({ orders }) {
