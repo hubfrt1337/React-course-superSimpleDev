@@ -1,5 +1,10 @@
 import { formatMoney } from "../../utils/money"
-export function CartItemsDetails( { cartItem }) {
+import axios from "axios"
+export function CartItemsDetails( { cartItem, loadCart }) {
+    const deleteCartItem = async () => {
+         await axios.delete(`/api/cart-items/${cartItem.productId}`)
+         loadCart();
+    }
     return (
         <>
             <img className="product-image"
@@ -16,10 +21,12 @@ export function CartItemsDetails( { cartItem }) {
                     <span>
                         Quantity: <span className="quantity-label">{cartItem.quantity}</span>
                     </span>
-                    <span className="update-quantity-link link-primary">
+                    <span className="update-quantity-link link-primary"
+            >
                         Update
                     </span>
-                    <span className="delete-quantity-link link-primary">
+                    <span className="delete-quantity-link link-primary"
+                    onClick={deleteCartItem}>
                         Delete
                     </span>
                 </div>
