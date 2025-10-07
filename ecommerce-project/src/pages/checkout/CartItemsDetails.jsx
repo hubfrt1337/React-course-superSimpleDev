@@ -20,6 +20,14 @@ export function CartItemsDetails({ cartItem, loadCart }) {
         setUpdating(false)
         }
     }
+    function updateQuantityByEnter(e){
+        if(e.key === "Enter"){
+            updateQuantity()
+        } if(e.key === "Escape"){
+            setQuantity(cartItem.quantity)
+            setUpdating(false)
+        }
+    }
     return (
         <>
             <img className="product-image"
@@ -39,6 +47,7 @@ export function CartItemsDetails({ cartItem, loadCart }) {
                         type="text" 
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
+                        onKeyDown={updateQuantityByEnter}
                         style={{width: "50px", display: updating ? "inline-block" : "none"}}
                         with="50px"></input> 
                         : <span className="quantity-label">{cartItem.quantity}</span>
