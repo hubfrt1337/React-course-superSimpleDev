@@ -2,12 +2,17 @@ import {NavLink} from "react-router"
 import logoWhite from "../assets/images/logo-white.png"
 import cartIcon from "../assets/images/icons/cart-icon.png"
 import searchIcon from "../assets/images/icons/search-icon.png"
+import { useState } from "react"
 import "./Header.css"
 export function Header({ cart }) {
+    const [text, setText] = useState("");
     let quantity = 0;
     cart.forEach(cartItem => {
         quantity += cartItem.quantity;
     })
+    function search(){
+        console.log(text)
+    }
     return (
         <div className="header">
             <div className="left-section">
@@ -20,9 +25,14 @@ export function Header({ cart }) {
             </div>
 
             <div className="middle-section">
-                <input className="search-bar" type="text" placeholder="Search" />
+                <input 
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="search-bar" type="text" placeholder="Search" />
 
-                <button className="search-button">
+                <button 
+                onClick={search}
+                className="search-button">
                     <img className="search-icon" src={searchIcon} />
                 </button>
             </div>
