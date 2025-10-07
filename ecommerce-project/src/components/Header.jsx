@@ -3,11 +3,14 @@ import logoWhite from "../assets/images/logo-white.png"
 import cartIcon from "../assets/images/icons/cart-icon.png"
 import searchIcon from "../assets/images/icons/search-icon.png"
 import { useState } from "react"
-import {useNavigate} from "react-router"
+import {useNavigate, useSearchParams} from "react-router"
 import "./Header.css"
 export function Header({ cart }) {
-    const [text, setText] = useState("");
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const searchValue = searchParams.get("search");
+    const [text, setText] = useState(searchValue || "");
+
     let quantity = 0;
     cart.forEach(cartItem => {
         quantity += cartItem.quantity;
