@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 export function CartItemsDetails({ cartItem, loadCart }) {
     const [updating, setUpdating] = useState(false)
+    const [quantity, setQuantity] = useState(cartItem.quantity)
     const deleteCartItem = async () => {
         await axios.delete(`/api/cart-items/${cartItem.productId}`)
         loadCart();
@@ -30,6 +31,8 @@ export function CartItemsDetails({ cartItem, loadCart }) {
                         Quantity: {updating 
                          ? <input 
                         type="text" 
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
                         style={{width: "50px", display: updating ? "inline-block" : "none"}}
                         with="50px"></input> 
                         : <span className="quantity-label">{cartItem.quantity}</span>
