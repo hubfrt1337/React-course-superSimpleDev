@@ -27,12 +27,13 @@ export function CartItemsDetails({ cartItem, loadCart }) {
                 </div>
                 <div className="product-quantity">
                     <span>
-                        Quantity:
-                        <input 
+                        Quantity: {updating 
+                         ? <input 
                         type="text" 
                         style={{width: "50px", display: updating ? "inline-block" : "none"}}
-                        with="50px"></input>
-                        <span className="quantity-label">{cartItem.quantity}</span>
+                        with="50px"></input> 
+                        : <span className="quantity-label">{cartItem.quantity}</span>
+                    }
                     </span>
                     <span
                         className="update-quantity-link link-primary"
